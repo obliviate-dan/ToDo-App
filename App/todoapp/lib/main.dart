@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'models/global.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,13 +29,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,35 +38,71 @@ class _MyHomePageState extends State<MyHomePage> {
         home: DefaultTabController(
           length: 3,
           child: new Scaffold(
-            body: Container(
-              child: TabBarView(
+            body: Stack(
+              children: <Widget> [
+                TabBarView(
                 children: [
                   new Container(
-                    color: Colors.yellow,
+                    color: DarkGreyColor,
                   ),
-                  new Container(color: Colors.orange,),
                   new Container(
-                    color: Colors.lightGreen,
+                    color: Colors.red,),
+                  new Container(
+                    color: Colors.redAccent,
                   ),
                 ],
               ),
-            ),
-            appBar: new TabBar(
-              tabs: [
-                Tab(
-                  icon: new Icon(Icons.home),
+                Container(
+                  padding: EdgeInsets.only(left: 50),
+                  height: 160,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50)
+                    ),
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text("Intray", style: intrayTitleStyle,),
+                      Container()
+                    ],
+                  ),
                 ),
-                Tab(
-                  icon: new Icon(Icons.rss_feed),
+                Container(
+                  height: 80,
+                  width: 80,
+                  margin: EdgeInsets.only(top: 130, left: MediaQuery.of(context).size.width*0.5 - 30),
+                  child: FloatingActionButton(
+                      child: Icon(Icons.add, size: 80,),
+                      backgroundColor: RedColor,
+                      onPressed: () {},
                 ),
-                Tab(
-                  icon: new Icon(Icons.perm_identity),
                 ),
               ],
-              labelColor: Colors.yellow,
-              unselectedLabelColor: Colors.blue,
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorPadding: EdgeInsets.all(5.0),
+            ),
+            appBar: AppBar(
+              elevation: 0,
+              title: new TabBar(
+                tabs: [
+                  Tab(
+                    icon: new Icon(Icons.home),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.rss_feed),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.perm_identity),
+                  ),
+                ],
+                labelColor: DarkGreyColor,
+                unselectedLabelColor: Colors.blue,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.all(5.0),
+                indicatorColor: Colors.white,
+              ),
+              backgroundColor: Colors.white,
             ),
             backgroundColor: Colors.white,
           ),
@@ -81,3 +111,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
