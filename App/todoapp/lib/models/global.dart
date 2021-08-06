@@ -10,3 +10,10 @@ TextStyle intrayTitleStyle = new TextStyle(
     color: DarkGreyColor,
     fontSize: 50
 );
+
+TextStyle darkTodoTitle = new TextStyle(
+    fontFamily: 'Avenir',
+    fontWeight: FontWeight.bold,
+    color: DarkGreyColor,
+    fontSize: 50
+);

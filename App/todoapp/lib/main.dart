@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todoapp/UI/Intray/intray_page/intray_page.dart';
 import 'models/global.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,22 +10,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'To Do App',
       theme: ThemeData(
-
-        primarySwatch: Colors.blue,
+          primarySwatch: Colors.grey,
+          dialogBackgroundColor: Colors.transparent
       ),
-      home: MyHomePage(title: 'To Do App'),
+      home: MyHomePage()
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
@@ -43,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 TabBarView(
                 children: [
                 IntrayPage(),
-                  new Container( color: Colors.red,),
+                  new Container( color: Colors.red),
                   new Container(
                     color: Colors.redAccent,
                   ),
@@ -55,8 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
-                      bottomRight: Radius.circular(50)
-                    ),
+                      bottomRight: Radius.circular(50)),
                     color: Colors.white,
                   ),
                   child: Row(
@@ -97,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 unselectedLabelColor: Colors.blue,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorPadding: EdgeInsets.all(5.0),
-                indicatorColor: Colors.white,
+                indicatorColor: Colors.transparent,
               ),
               backgroundColor: Colors.white,
             ),
